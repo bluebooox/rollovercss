@@ -19,17 +19,18 @@
             var img = jQuery(this).find('img'),
                 src = img.attr('src'),
                 reg = new RegExp(settings.over),
-                // imgH = img.height(),
-                // imgW = img.width();
+                imgH = img.height(),
+                imgW = img.width();
 
             if (src.match(reg)) return;
 
-            console.log(img, src, imgH, imgW)
+            // console.log(img, src, imgH, imgW)
             var _hover = src.replace(/\.\w+$/, settings.over + '$&');
             $(this).css({
                 'background': 'url(' + _hover + ') no-repeat 0 0',
-                // 'width': imgW,
-                // 'height': imgH
+                'width': imgW,
+                'height': imgH,
+                'display': 'block'
             }).hover(
                 function() {
                     // $(this).find('img').stop(true).fadeTo(settings.duration, settings.opacity);
